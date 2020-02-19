@@ -34,23 +34,20 @@ class Herald
     {
         // случайное кол-во символов в слоге от 1 до 4
         $syllablesCount = mt_rand(1, 4);
+        $openSyllable = '';
 
-        if ( $syllablesCount === 1 ) return $this->getSymbol($this->vowels);
+        if ( $syllablesCount === 1 ) $openSyllable = $this->getSymbol($this->vowels);
 
-        if ( $syllablesCount === 2 ) return $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
+        if ( $syllablesCount === 2 ) $openSyllable = $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
 
-        if ( $syllablesCount === 3 )
+        if ( $syllablesCount > 2 )
         {
             $firstSymbol = mt_rand(0, 1) ? $this->getSymbol($this->consonants) : $this->getSymbol($this->vowels);
-            return  $firstSymbol . $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
+            $third = $syllablesCount === 3 ? '' : $this->getSymbol($this->consonants);
+            $openSyllable =  $firstSymbol . $this->getSymbol($this->consonants) . $third . $this->getSymbol($this->vowels);
         }
-
-        if ( $syllablesCount === 4 )
-        {
-            $firstSymbol = mt_rand(0, 1) ? $this->getSymbol($this->consonants) : $this->getSymbol($this->vowels);
-            return  $firstSymbol . $this->getSymbol($this->consonants) . $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
-        }
-
+        
+        return $openSyllable;
     }
 
     /**
