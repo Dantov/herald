@@ -11,7 +11,11 @@ function debug( $arr, $str = false , $die = 0)
 
 require_once __DIR__ . "/classes/Herald.php";
 
-$speaker = new Herald();
+$config = [
+    'word'=>[1,1]
+];
+
+$speaker = new Herald($config);
 
 echo $speaker->openSyllable();
 echo "<br>";

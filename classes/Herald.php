@@ -6,7 +6,6 @@
 class Herald
 {
 
-
     /**
      * @var string
      * Гласные
@@ -19,13 +18,77 @@ class Herald
      */
     public $consonants = ['б','в','г','д','ж','з','к','л','м','н','п','р','с','т','ф','х','ц','ч','ш','щ'];
 
+    /**
+     * @var array
+     * конфигурация по умолчанию
+     */
+    public $config = [
+        'word'      => [1,14], // Кол-во символов в словах от-до
+        'sentence'  => [3,10], // Кол-во слов в предложениях от-до
+        'paragraph' => [4,20], // Кол-во предложений в параграфе от-до
+        'text'      => [3,10], // Кол-во параграфов в стене текста от-до
+    ];
 
+    /**
+     * Herald constructor.
+     * @param array $config
+     * @throws Exception
+     */
+    public function __construct($config=[] )
+    {
+        if ( !empty($config) && is_array($config) )
+        {
+            try
+            {
+                $this->setConfig($config);
+            } catch (Exception $e)
+            {
+
+            }
+
+        }
+    }
+
+    /**
+     * @param array $config
+     * @throws Exception
+     */
+    public function setConfig($config)
+    {
+        foreach ( $config as $paramName => $param  )
+        {
+            if ( !in_array($paramName, $this->config) ) continue;
+            if ( !is_array($param) ) continue;
+
+            if ( isset($param[0]) )
+            {
+                $from = $param[0];
+                if ( !is_int($from) ) throw new Exception("Config parameters must be int",500);
+                $this->config[$paramName][0] = $from;
+            }
+
+            if ( isset($param[1]) )
+            {
+                $to = $param[1];
+                if ( !is_int($to) ) throw new Exception("Config parameters must be int",500);
+                $this->config[$paramName][1] = $to;
+            }
+        }
+    }
+
+
+    /**
+     * @param $arr
+     * @return mixed
+     * Взяли случайный символ
+     */
     public function getSymbol($arr)
     {
         $randomChar = mt_rand(0, count($arr)-1);
         shuffle( $arr );
         return $arr[$randomChar];
     }
+
 
     /**
      * Открытый слог - оканчивается на гласный звук.
@@ -77,7 +140,10 @@ class Herald
      */
     public function word( $firstUpper = false )
     {
-        $symbolsCount = mt_rand(1, 14);
+        $from = $this->config['word'][0];
+        $to = $this->config['word'][1];
+        
+        $symbolsCount = mt_rand($from, $to);
 
         $word = '';
 
@@ -106,7 +172,7 @@ class Herald
         $wordsCount = mt_rand(3, 10);
         $sentence = [];
 
-        $firstWord = $this->word(1);
+        $firstWord = $this->word(true);
         array_push($sentence, $firstWord);
 
         while ( count($sentence) < $wordsCount )
@@ -127,7 +193,7 @@ class Herald
             array_push($paragraph, $this->sentence());
         }
 
-        return "&nbsp;&nbsp;&nbsp;&nbsp;" . implode(' ', $paragraph);
+        return "\t" . implode(' ', $paragraph);
     }
 
     public function text()
@@ -140,7 +206,7 @@ class Herald
             array_push($text, $this->paragraph());
         }
 
-        return implode("<br>", $text);
+        return implode("\n", $text);
     }
 
 }
