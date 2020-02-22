@@ -1,19 +1,20 @@
 <?php
 
 /**
+ * Generate unknown language text
+ * on cyrillic symbols
  */
-
 class Herald
 {
 
     /**
-     * @var string
+	* @var array
      * Гласные
      */
     public $vowels = ['а','е','ё','и','о','у','ы','э','ю','я'];
 
     /**
-     * @var string
+	* @var array
      * Согласные
      */
     public $consonants = ['б','в','г','д','ж','з','к','л','м','н','п','р','с','т','ф','х','ц','ч','ш','щ'];
@@ -22,11 +23,11 @@ class Herald
      * @var array
      * конфигурация по умолчанию
      */
-    public $config = [
-        'word'      => [1,14], // Кол-во символов в словах от-до
+    protected $config = [
+        'word'      => [1,14], // Кол-во букв в словах от-до
         'sentence'  => [3,10], // Кол-во слов в предложениях от-до
         'paragraph' => [4,20], // Кол-во предложений в параграфе от-до
-        'text'      => [3,10], // Кол-во параграфов в стене текста от-до
+        'text'      => [3,10], // Кол-во абзацев в тексте от-до
     ];
 
     /**
@@ -34,18 +35,15 @@ class Herald
      * @param array $config
      * @throws Exception
      */
-    public function __construct($config=[] )
+    public function __construct( $config=[] )
     {
         if ( !empty($config) && is_array($config) )
         {
-            try
-            {
-                $this->setConfig($config);
-            } catch (Exception $e)
-            {
-
-            }
-
+			try {
+				$this->setConfig($config);
+			} catch (Exception $e) {
+				debug('Error message: ' . $e->getMessage());
+			}
         }
     }
 
@@ -57,25 +55,41 @@ class Herald
     {
         foreach ( $config as $paramName => $param  )
         {
-            if ( !in_array($paramName, $this->config) ) continue;
+			if ( !array_key_exists($paramName, $this->config) ) continue;
             if ( !is_array($param) ) continue;
-
+            
             if ( isset($param[0]) )
             {
-                $from = $param[0];
-                if ( !is_int($from) ) throw new Exception("Config parameters must be int",500);
-                $this->config[$paramName][0] = $from;
+				$this->paramException($param[0]);
+				$this->config[$paramName][0] = $param[0];
             }
-
             if ( isset($param[1]) )
             {
-                $to = $param[1];
-                if ( !is_int($to) ) throw new Exception("Config parameters must be int",500);
-                $this->config[$paramName][1] = $to;
+				$this->paramException($param[1]);
+				$this->config[$paramName][1] = $param[1];
             }
         }
     }
-
+    
+    /**
+	* 
+	* @param {object} $param
+	* @return
+	*/
+	protected function paramException($param)
+	{
+		if ( !is_int($param) )
+			throw new Exception("Config parameters must be int",500);
+		if ( $param < 0 )
+			throw new Exception("Config parameters must be above zero",500);
+		if ( $param > 40 )
+			throw new Exception("Config parameters too high!",500);
+	}
+    
+    public function getConfig()
+    {
+		return $this->config;
+    }
 
     /**
      * @param $arr
@@ -113,7 +127,6 @@ class Herald
         return $openSyllable;
     }
 
-
     /**
      * Закрытый слог - оканчивается на согласный звук.
      */
@@ -131,19 +144,30 @@ class Herald
 
         return $closedSyllable;
     }
-
+    
+    /**
+	* Генерирует случайное число на основе конфигурации
+	* для заданного метода
+	* @param string $param
+	* @return
+	*/
+    protected function fromToRand( $param )
+    {
+		$from = $this->config[$param][0];
+		$to = $this->config[$param][1];
+		
+		return mt_rand($from, $to);
+    }
 
     /**
+	 * Generating a random length word
      * @param bool $firstUpper
-     * генерирует слово случайной длинны
+     * Upper case for the first letter
      * @return string
      */
     public function word( $firstUpper = false )
     {
-        $from = $this->config['word'][0];
-        $to = $this->config['word'][1];
-        
-        $symbolsCount = mt_rand($from, $to);
+		$symbolsCount = $this->fromToRand('word');
 
         $word = '';
 
@@ -169,7 +193,7 @@ class Herald
      */
     public function sentence()
     {
-        $wordsCount = mt_rand(3, 10);
+		$wordsCount =  $this->fromToRand('sentence');
         $sentence = [];
 
         $firstWord = $this->word(true);
@@ -179,13 +203,36 @@ class Herald
         {
             array_push($sentence, $this->word());
         }
-
-        return implode(' ', $sentence) . '.';
+        
+		// запятые
+		$count = count($sentence);
+		if ( $count > 3 && $count < 8 )
+		{
+			$rand = mt_rand(0, $count-2);
+			$sentence[$rand] .= ",";
+		} elseif ( $count > 8 ) {
+			$rand1 = $rand2 = 0;
+			while ( $rand1 === $rand2 ) {
+				$rand1 = mt_rand(0, $count-2);
+				$rand2 = mt_rand(0, $count-2);
+			}
+			$sentence[$rand1] .= ",";
+			$sentence[$rand2] .= ",";
+		}
+		
+		$sentenceEnd = '.';
+		if ( mt_rand(1, 100) < 5 ) $sentenceEnd = "!";
+		return implode(' ', $sentence) . $sentenceEnd;
     }
-
+    
+    /**
+	* Generate random height paragraph
+	* 
+	* @return string
+	*/
     public function paragraph()
     {
-        $sentencesCount = mt_rand(4, 20);
+		$sentencesCount = $this->fromToRand('paragraph');
         $paragraph = [];
 
         while ( count($paragraph) < $sentencesCount )
@@ -195,10 +242,14 @@ class Herald
 
         return "\t" . implode(' ', $paragraph);
     }
-
+    
+    /**
+	* Wall of text
+	* @return string
+	*/
     public function text()
     {
-        $paragraphsCount = mt_rand(3, 10);
+		$paragraphsCount = $this->fromToRand('text');
         $text = [];
 
         while ( count($text) < $paragraphsCount )

@@ -1,31 +1,34 @@
 <?php
-function debug( $arr, $str = false , $die = 0)
-{
-    echo '<pre>';
-    if ( $str ) echo $str . ' = ';
-    print_r( $arr );
-    echo '</pre>';
 
-    if ( $die ) die;
-}
-
+require_once __DIR__ . "/functs.php";
 require_once __DIR__ . "/classes/Herald.php";
 
 $config = [
-    'word'=>[1,1]
+    'word' => [1,15],
+	'sentence' => [3,10],
+	'paragraph' => [5,12],
 ];
 
 $speaker = new Herald($config);
+//debug($speaker->getConfig());
+?>
 
-echo $speaker->openSyllable();
-echo "<br>";
-echo $speaker->closedSyllable();
+<h3>Test Herald</h3>
 
-echo "<br>";
-echo $speaker->word(true);
-echo "<br>";
-echo $speaker->sentence();
-echo "<br>";
-echo $speaker->paragraph();
+<p> Open syllable:
+	<i><b><?= $speaker->openSyllable() ?></b></i>
+</p>
+<p> Closed syllable:
+	<i><b><?= $speaker->closedSyllable() ?></b></i>
+</p>
+<p> One word:
+	<i><b><?= $speaker->word(true) ?></b></i>
+</p>
+<p> One sentence:
+ <i><b><?= $speaker->sentence() ?></b></i>
+</p>
 
-echo "<h4>".$speaker->text()."</h4>";
+<p> Paragraph: <br>
+	<i>&nbsp;&nbsp;
+		<b><?= $speaker->paragraph() ?></b></i>
+</p>
