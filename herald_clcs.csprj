@@ -1,33 +1,39 @@
 
 <codestructure version="1.7.1">
 <phptree>
-<treenode node="Herald;PHP:Class Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f0;5;1;211;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    class Herald&#10;;;d0,6;;b0,0;;m0;;e">
-<treenode node="__construct;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;36;5;49;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    __construct($config=[] )&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Herald constructor.&#10;&lt;b&gt;throws&lt;/b&gt;: Exception&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    array &lt;b&gt;$config&lt;/b&gt;;;d4,37;;b1,0;;m0;;earray $config;;p;;x">
+<treenode node="Herald;PHP:Class Name;D:\OSPanel\domains\Herald\classes\Herald.php;f0;6;1;262;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    class Herald&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Generate unknown language text&#10;on cyrillic symbols;;d0,7;;b0,0;;m0;;e">
+<treenode node="__construct;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;37;5;47;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    __construct( $config=[] )&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Herald constructor.&#10;&lt;b&gt;throws&lt;/b&gt;: Exception&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    array &lt;b&gt;$config&lt;/b&gt;;;d4,38;;b1,0;;m0;;earray $config;;p;;x">
 </treenode>
-<treenode node="closedSyllable;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;119;5;132;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    closedSyllable()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Закрытый слог - оканчивается на согласный звук.;;d4,120;;b1,0;;m0;;e">
+<treenode node="closedSyllable;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;132;5;145;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    closedSyllable()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Закрытый слог - оканчивается на согласный звук.;;d4,133;;b1,0;;m0;;e">
 </treenode>
-<treenode node="getSymbol;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;84;5;89;;;;vpos;;v;;amixed;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    getSymbol($arr)&#10;&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;     &lt;b&gt;$arr&lt;/b&gt;&#10;&#10;&lt;b&gt;Return:&lt;/b&gt;&#10;   Взяли случайный символ;;d4,85;;b1,0;;m0;;e $arr;;p;;x">
+<treenode node="fromToRand;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f14;153;5;159;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    fromToRand( $param )&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Генерирует случайное число на основе конфигурации&#10;для заданного метода&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    string &lt;b&gt;$param&lt;/b&gt;;;d4,154;;b2,0;;m0;;estring $param;;p;;x">
 </treenode>
-<treenode node="openSyllable;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;95;5;113;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    openSyllable()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Открытый слог - оканчивается на гласный звук.;;d4,96;;b1,0;;m0;;e">
+<treenode node="getConfig;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;88;5;91;;;;vpos;;v;;a;;r;;d4,89;;b1,0;;m0;;e">
 </treenode>
-<treenode node="paragraph;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;185;5;196;;;;vpos;;v;;a;;r;;d4,186;;b1,0;;m0;;e">
+<treenode node="getSymbol;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;98;5;103;;;;vpos;;v;;amixed;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    getSymbol($arr)&#10;&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;     &lt;b&gt;$arr&lt;/b&gt;&#10;&#10;&lt;b&gt;Return:&lt;/b&gt;&#10;   Взяли случайный символ;;d4,99;;b1,0;;m0;;e $arr;;p;;x">
 </treenode>
-<treenode node="sentence;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;169;5;183;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    sentence()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Формируем предложение;;d4,170;;b1,0;;m0;;e">
+<treenode node="openSyllable;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;109;5;127;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    openSyllable()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Открытый слог - оканчивается на гласный звук.;;d4,110;;b1,0;;m0;;e">
 </treenode>
-<treenode node="setConfig;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;55;5;76;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    setConfig($config)&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    &lt;b&gt;throws&lt;/b&gt;: Exception&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    array &lt;b&gt;$config&lt;/b&gt;;;d4,56;;b1,0;;m0;;earray $config;;p;;x">
+<treenode node="paragraph;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;232;5;243;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    paragraph()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Generate random height paragraph;;d4,233;;b1,0;;m0;;e">
 </treenode>
-<treenode node="text;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;198;5;209;;;;vpos;;v;;a;;r;;d4,199;;b1,0;;m0;;e">
+<treenode node="paramException;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;78;2;86;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    paramException($param)&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    {object} $param&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    ;;d1,79;;b2,0;;m0;;e;;p;;x">
 </treenode>
-<treenode node="word;PHP:Function Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;140;5;163;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    word( $firstUpper = false )&#10;&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    bool &lt;b&gt;$firstUpper&lt;/b&gt;: генерирует слово случайной длинны;;d4,141;;b1,0;;m0;;ebool $firstUpper;;p;;x">
+<treenode node="sentence;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;193;5;225;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    sentence()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Формируем предложение;;d4,194;;b1,0;;m0;;e">
 </treenode>
-<treenode node="$config;PHP:Var Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;24;18;24;;;;vposarray;;v;;a;;r;;d-1,-1;;b1,0;;m0;;e">
+<treenode node="setConfig;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;53;5;71;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    setConfig($config)&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    &lt;b&gt;throws&lt;/b&gt;: Exception&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    array &lt;b&gt;$config&lt;/b&gt;;;d4,54;;b1,0;;m0;;earray $config;;p;;x">
 </treenode>
-<treenode node="$consonants;PHP:Var Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;18;22;18;;;;vposstring;;v;;a;;r;;d-1,-1;;b1,0;;m0;;e">
+<treenode node="text;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;249;5;260;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    text()&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Wall of text;;d4,250;;b1,0;;m0;;e">
 </treenode>
-<treenode node="$vowels;PHP:Var Name;D:\OSPanel\domains\Herald\herald\classes\Herald.php;f11;12;18;12;;;;vposstring;;v;;a;;r;;d-1,-1;;b1,0;;m0;;e">
+<treenode node="word;PHP:Function Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;167;5;187;;;;vpos;;v;;astring;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    word( $firstUpper = false )&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    Generating a random length word&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    bool &lt;b&gt;$firstUpper&lt;/b&gt;: Upper case for the first letter;;d4,168;;b1,0;;m0;;ebool $firstUpper;;p;;x">
+</treenode>
+<treenode node="$config;PHP:Var Name;D:\OSPanel\domains\Herald\classes\Herald.php;f14;25;21;25;;;;vposarray;;v;;a;;r;;d-1,-1;;b2,0;;m0;;e">
+</treenode>
+<treenode node="$consonants;PHP:Var Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;19;22;19;;;;vposarray;;v;;a;;r;;d-1,-1;;b1,0;;m0;;e">
+</treenode>
+<treenode node="$vowels;PHP:Var Name;D:\OSPanel\domains\Herald\classes\Herald.php;f11;13;18;13;;;;vposarray;;v;;a;;r;;d-1,-1;;b1,0;;m0;;e">
 </treenode>
 </treenode>
-<treenode node="debug;PHP:Function Name;D:\OSPanel\domains\Herald\herald\index.php;f0;1;1;9;;;;vpos;;v;;a;;r;;d0,2;;b0,0;;m0;;earr;;pstr;;pdie;;p;;x;;x;;x">
+<treenode node="debug;PHP:Function Name;D:\OSPanel\domains\Herald\functs.php;f0;11;1;21;;;;vpos;;v;;a;;r&#10;&lt;b&gt;Definition&lt;/b&gt;&#10;    debug( $arr, $str = false , $die = false)&#10;&#10;&lt;b&gt;Description&lt;/b&gt;&#10;    {object} $arr&#10;{object} $str&#10;{object} false&#10;{object} $die&#10;&#10;&lt;b&gt;Parameters:&lt;/b&gt;&#10;    &#10;    &#10;    &#10;    ;;d0,12;;b0,0;;m0;;earr;;pstr;;pdie;;p;;x;;x;;x">
 </treenode>
 </phptree>
 <jstree>

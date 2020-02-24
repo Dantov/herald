@@ -112,14 +112,23 @@ class Herald
         // случайное кол-во символов в слоге от 1 до 4
         $symbolsCount = mt_rand(1, 4);
         $openSyllable = '';
-
-        if ( $symbolsCount === 1 ) $openSyllable = $this->getSymbol($this->vowels);
+        
+        // Исключим букву "ы" из начала
+		if ( $symbolsCount === 1 ) 
+		{
+			$openSyllable = 'ы';
+			while ( $openSyllable === 'ы' ) $openSyllable = $this->getSymbol($this->vowels);
+		}
 
         if ( $symbolsCount === 2 ) $openSyllable = $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
 
         if ( $symbolsCount > 2 )
         {
-            $firstSymbol = mt_rand(0, 1) ? $this->getSymbol($this->consonants) : $this->getSymbol($this->vowels);
+			$firstSymbol = 'ы';
+			while ( $firstSymbol === 'ы' )
+        	{
+				$firstSymbol = mt_rand(0, 1) ? $this->getSymbol($this->consonants) : $this->getSymbol($this->vowels);
+        	}
             $openSyllable =  $firstSymbol . $this->getSymbol($this->consonants) . $this->getSymbol($this->vowels);
             if ( $symbolsCount === 4 ) $openSyllable .= 'й';
         }
@@ -135,7 +144,14 @@ class Herald
         $symbolsCount = mt_rand(2, 4);
         $closedSyllable = '';
 
-        if ( $symbolsCount === 2 ) $closedSyllable = $this->getSymbol($this->vowels) . $this->getSymbol($this->consonants);
+		if ( $symbolsCount === 2 ) 
+		{
+			// Исключим букву "ы" из начала
+			$firstSymbol = 'ы';
+			while ( $firstSymbol === 'ы' ) $firstSymbol = $this->getSymbol($this->vowels);
+			$closedSyllable = $firstSymbol . $this->getSymbol($this->consonants);
+		}
+		
         if ( $symbolsCount > 2 )
         {
             $closedSyllable = $this->getSymbol($this->consonants).$this->getSymbol($this->vowels).$this->getSymbol($this->consonants);

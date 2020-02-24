@@ -4,5 +4,34 @@
   <PM_URL><![CDATA[herald/]]></PM_URL>
   <PM_HOME_URL><![CDATA[herald/]]></PM_HOME_URL>
   <PM_LIBS><![CDATA[]]></PM_LIBS>
+  <PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION>
+  <PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR>
+  <PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE>
  </settings>
+ <removed value=";"/>
+ <added value=""/>
+ <lastopfiles>
+  <file name="D:\OSPanel\domains\Herald\index.php"/>
+  <file name="D:\OSPanel\domains\Herald\classes\Herald.php"/>
+  <lastactivefile name=""/>
+ </lastopfiles>
+ <errors version="1.3"/>
+ <cakedata/>
+ <dplmenupath/>
+ <laravael/>
+ <smartyassings/>
+ <twigtemplate/>
+ <yiidata/>
+ <todoblock/>
+ <dbgurls/>
+ <filescache>
+  <file name="D:\OSPanel\domains\Herald\classes\Herald.php" crc="1582407844762"/>
+  <file name="D:\OSPanel\domains\Herald\.idea\workspace.xml" crc="1582323195143"/>
+  <file name="D:\OSPanel\domains\Herald\.idea\vcs.xml" crc="1582323195143"/>
+  <file name="D:\OSPanel\domains\Herald\.idea\modules.xml" crc="1582323195142"/>
+  <file name="D:\OSPanel\domains\Herald\.idea\misc.xml" crc="1582323195142"/>
+  <file name="D:\OSPanel\domains\Herald\.idea\deployment.xml" crc="1582323195141"/>
+  <file name="D:\OSPanel\domains\Herald\index.php" crc="1582408018323"/>
+  <file name="D:\OSPanel\domains\Herald\functs.php" crc="1582403666180"/>
+ </filescache>
 </project>
